@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>English Learning App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="aiTeacher">
+
+<h2>AI English Teacher</h2>
+
+<p>Ask a question about English</p>
+
+<input id="question" placeholder="Example: What is the difference between 'do' and 'make'?">
+
+<button onclick="askTeacher()">Ask</button>
+
+<p id="answer"></p>
+
+</div>
+<body>
+
+<h1>Learn English</h1>
+
+<h2>Choose your level</h2>
+
+<button onclick="chooseLevel('beginner')">Beginner</button>
+<button onclick="chooseLevel('elementary')">Elementary</button>
+
+<!-- Блок тем уроков -->
+<div id="topics" style="display:none; margin-top:30px;">
+    <h2>Choose lesson topic</h2>
+    <button onclick="startLesson('family')">Family</button>
+<div id="Family" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('numbers')">Family</button>
+<div id="Numbers" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('colors')">Family</button>
+<div id="Colors" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('Months and Seasons')">Family</button>
+<div id="Months and Seasons" class="lesson" style="display:none;"></div>
+
+
+<button onclick="startLesson('School and Education')">Family</button>
+<div id="School and Education" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('Health and Body')">Family</button>
+<div id="Health and Body" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('Food and Cooking')">Family</button>
+<div id="Food and Cooking" class="lesson" style="display:none;"></div>
+<button onclick="startLesson('Travel and Holidays')">Family</button>
+<div id="Travel and Holidays" class="lesson" style="display:none;"></div>
+    
+
+<div class="card" onclick="flipCard(this)">
+<div class="front">
+
+<img src="IMAGE_LINK" width="120">
+
+<p>Father</p>
+
+<button onclick="speakWord('father'); event.stopPropagation()">🔊</button>
+
+</div>
+
+<div class="back">
+<p>Отец</p>
+</div>
+</div>
+
+<!-- Блок урока Family -->
+<div id="familyLesson" style="display:none; margin-top:40px;">
+    <h2>Family Vocabulary</h2>
+
+    <div class="cards">
+
+        <!-- Father -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922561.png" width="120">
+                <p>Father</p>
+                <button onclick="speakWord('father'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>Отец</p>
+            </div>
+        </div>
+
+        <!-- Mother -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922656.png" width="120">
+                <p>Mother</p>
+                <button onclick="speakWord('mother'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>Мама</p>
+            </div>
+        </div>
+
+        <!-- Brother -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" width="120">
+                <p>Brother</p>
+                <button onclick="speakWord('brother'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>Брат</p>
+            </div>
+        </div>
+
+        <!-- Sister -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922624.png" width="120">
+                <p>Sister</p>
+                <button onclick="speakWord('sister'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>Сестра</p>
+            </div>
+        </div>
+        <!-- Grandmother -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>grandmother</p>
+                <button onclick="speakWord('grandmother'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>бабушка</p>
+            </div>
+        </div>
+<!-- Grandfather -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>grandfather</p>
+                <button onclick="speakWord('grandfather'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>дедушка</p>
+            </div>
+        </div>
+<!-- Uncle -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>uncle</p>
+                <button onclick="speakWord('uncle'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>дядя</p>
+            </div>
+        </div>
+<!-- Aunt -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>aunt</p>
+                <button onclick="speakWord('aunt'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>тетя</p>
+            </div>
+        </div>
+<!-- Cousin -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>cousin</p>
+                <button onclick="speakWord('cousin'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>кузина</p>
+            </div>
+        </div>
+<!-- Parents -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>parents</p>
+                <button onclick="speakWord('parents'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>родители</p>
+            </div>
+        </div>
+<!-- Son -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>son</p>
+                <button onclick="speakWord('son'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>сын</p>
+            </div>
+        </div>
+<!-- Daughter -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>daughter</p>
+                <button onclick="speakWord('daugther'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>дочка</p>
+            </div>
+        </div>
+<!-- Baby -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>baby</p>
+                <button onclick="speakWord('baby'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>ребенок</p>
+            </div>
+        </div>
+<!-- Family -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>family</p>
+                <button onclick="speakWord('family'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>семья</p>
+            </div>
+        </div>
+<!-- Husband -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>husband</p>
+                <button onclick="speakWord('husband'); event.stopPropagation()">🔊 Pronounce</button>
+            </div>
+            <div class="back">
+                <p>муж</p>
+            </div>
+        </div>
+
+
+        
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<div id="numbers" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Numbers</h2>
+    <div class="cards">
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>One</p>
+                <button onclick="speakWord('one'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Один</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>Two</p>
+                <button onclick="speakWord('two'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Два</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>three</p>
+                <button onclick="speakWord('three'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>три</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>four</p>
+                <button onclick="speakWord('four'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>четыре</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>five</p>
+                <button onclick="speakWord('five'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>пять</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>six</p>
+                <button onclick="speakWord('six'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>шесть</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>seven</p>
+                <button onclick="speakWord('seven'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>семь</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>eight</p>
+                <button onclick="speakWord('eight'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>восемь</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>nine</p>
+                <button onclick="speakWord('nine'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>девять</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>ten</p>
+                <button onclick="speakWord('ten'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>десять</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>eleven</p>
+                <button onclick="speakWord('eleven'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>одиннадцатьт</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>twelve</p>
+                <button onclick="speakWord('twelve'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>двенадцать</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>thirty</p>
+                <button onclick="speakWord('thirty'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>тридцать</p>
+                <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>hundred</p>
+                <button onclick="speakWord('hundred'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>сто</p>
+                <div id="colors" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Colors</h2>
+    <div class="cards">
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>red</p>
+                <button onclick="speakWord('red'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>красный</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>blue</p>
+                <button onclick="speakWord('blue'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>синий</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>green</p>
+                <button onclick="speakWord('green'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>зеленый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>yellow</p>
+                <button onclick="speakWord('yellow'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>желтый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>black</p>
+                <button onclick="speakWord('black'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>черный</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>white</p>
+                <button onclick="speakWord('white'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>белый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>pink</p>
+                <button onclick="speakWord('pink'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>розовый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>orange</p>
+                <button onclick="speakWord('orange'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>оранжевый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>purple</p>
+                <button onclick="speakWord('purple'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>фиолетовый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>brown</p>
+                <button onclick="speakWord('brown'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>коричневый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>grey</p>
+                <button onclick="speakWord('grey'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>серый</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>light</p>
+                <button onclick="speakWord('light'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>светлый</p>
+            </div>
+        </div>
+<div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>dark</p>
+                <button onclick="speakWord('dark'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>темный</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>gold</p>
+                <button onclick="speakWord('gold'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>золотой</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>silver</p>
+                <button onclick="speakWord('silver'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>серебряный</p>
+            </div>
+        </div>
+        <!-- Months & Seasons Lesson -->
+<div id="months" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Months & Seasons</h2>
+    <div class="cards">
+
+        <!-- January -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942820.png" width="120">
+                <p>January</p>
+                <button onclick="speakWord('January'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Январь</p>
+            </div>
+        </div>
+
+        <!-- February -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942825.png" width="120">
+                <p>February</p>
+                <button onclick="speakWord('February'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Февраль</p>
+            </div>
+        </div>
+
+        <!-- March -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942830.png" width="120">
+                <p>March</p>
+                <button onclick="speakWord('March'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Март</p>
+            </div>
+        </div>
+
+        <!-- April -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942835.png" width="120">
+                <p>April</p>
+                <button onclick="speakWord('April'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Апрель</p>
+            </div>
+        </div>
+
+        <!-- May -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942840.png" width="120">
+                <p>May</p>
+                <button onclick="speakWord('May'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Май</p>
+            </div>
+        </div>
+
+        <!-- June -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942845.png" width="120">
+                <p>June</p>
+                <button onclick="speakWord('June'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Июнь</p>
+            </div>
+        </div>
+
+        <!-- July -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942850.png" width="120">
+                <p>July</p>
+                <button onclick="speakWord('July'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Июль</p>
+            </div>
+        </div>
+
+        <!-- August -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942855.png" width="120">
+                <p>August</p>
+                <button onclick="speakWord('August'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Август</p>
+            </div>
+        </div>
+
+        <!-- September -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942860.png" width="120">
+                <p>September</p>
+                <button onclick="speakWord('September'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Сентябрь</p>
+            </div>
+        </div>
+
+        <!-- October -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942865.png" width="120">
+                <p>October</p>
+                <button onclick="speakWord('October'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Октябрь</p>
+            </div>
+        </div>
+
+        <!-- November -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942870.png" width="120">
+                <p>November</p>
+                <button onclick="speakWord('November'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Ноябрь</p>
+            </div>
+        </div>
+
+        <!-- December -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942875.png" width="120">
+                <p>December</p>
+                <button onclick="speakWord('December'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Декабрь</p>
+            </div>
+        </div>
+
+        <!-- Seasons -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" width="120">
+                <p>Spring</p>
+                <button onclick="speakWord('Spring'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Весна</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/414/414925.png" width="120">
+                <p>Summer</p>
+                <button onclick="speakWord('Summer'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Лето</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/414/414926.png" width="120">
+                <p>Autumn</p>
+                <button onclick="speakWord('Autumn'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Осень</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/414/414928.png" width="120">
+                <p>Winter</p>
+                <button onclick="speakWord('Winter'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Зима</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<button onclick="startLesson('travel')">Travel & Holidays</button>
+<button onclick="startLesson('foodCooking')">Food & Cooking</button>
+<button onclick="startLesson('healthBody')">Health & Body</button>
+<button onclick="startLesson('schoolEducation')">School & Education</button>
+<!-- Travel & Holidays Lesson -->
+<div id="travel" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Travel & Holidays</h2>
+    <div class="cards">
+
+        <!-- Passport -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910764.png" width="120">
+                <p>Passport</p>
+                <button onclick="speakWord('Passport'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Паспорт</p>
+            </div>
+        </div>
+
+        <!-- Ticket -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="120">
+                <p>Ticket</p>
+                <button onclick="speakWord('Ticket'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Билет</p>
+            </div>
+        </div>
+
+        <!-- Luggage -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" width="120">
+                <p>Luggage</p>
+                <button onclick="speakWord('Luggage'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Багаж</p>
+            </div>
+        </div>
+<!-- suitcase -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>suitcase</p>
+                <button onclick="speakWord('suitcase'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>чемодан</p>
+            </div>
+        </div>
+<!-- hotel -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>hotel</p>
+                <button onclick="speakWord('hotel'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>отель</p>
+            </div>
+        </div>
+<!-- reservation -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>reservation</p>
+                <button onclick="speakWord('reservation'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>бронирование</p>
+            </div>
+        </div>
+<!-- beach -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>beach</p>
+                <button onclick="speakWord('beach'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>пляж</p>
+            </div>
+        </div>
+<!-- airport -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>airport</p>
+                <button onclick="speakWord('airport'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>аэропорт</p>
+            </div>
+        </div>
+<!-- journey -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>journey</p>
+                <button onclick="speakWord('journey'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>путешествие</p>
+            </div>
+        </div>
+<!-- trip -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>trip</p>
+                <button onclick="speakWord('trip'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>путешествие</p>
+            </div>
+        </div>
+<!-- guide -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" width="120">
+                <p>guide</p>
+                <button onclick="speakWord('guide'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>гид</p>
+            </div>
+        </div>
+<!-- map -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" width="120">
+                <p>map</p>
+                <button onclick="speakWord('map'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>карта</p>
+            </div>
+        </div>
+<!-- sightseeing -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>sightseeing</p>
+                <button onclick="speakWord('sightseeing'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>осмотр достопримечательностей</p>
+            </div>
+        </div>
+        <!-- tour -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>tour</p>
+                <button onclick="speakWord('tour'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>тур</p>
+            </div>
+        </div>
+        <!-- adventure -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>adventure</p>
+                <button onclick="speakWord('adventure'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>приключение</p>
+            </div>
+        </div>
+        <!-- Food & Cooking Lesson -->
+<div id="foodCooking" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Food & Cooking</h2>
+    <div class="cards">
+
+        <!-- Recipe -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" width="120">
+                <p>Recipe</p>
+                <button onclick="speakWord('Recipe'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Рецепт</p>
+            </div>
+        </div>
+
+        <!-- Ingredient -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046822.png" width="120">
+                <p>Ingredient</p>
+                <button onclick="speakWord('Ingredient'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Ингредиент</p>
+            </div>
+        </div>
+
+        <!-- Остальные слова (boil, fry, bake...) добавляешь по шаблону -->
+    </div>
+</div>
+<!-- boil -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>boil</p>
+                <button onclick="speakWord('boil'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>варить</p>
+            </div>
+        </div>
+</div>
+</div>
+<!-- fry -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>fry</p>
+                <button onclick="speakWord('fry'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>жарить</p>
+            </div>
+        </div>
+</div>
+</div>
+<!-- bake -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>bake</p>
+                <button onclick="speakWord('bake'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>печь</p>
+            </div>
+        </div>
+<!-- grill -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>grill</p>
+                <button onclick="speakWord('grill'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>гриль</p>
+            </div>
+        </div>
+        <!-- roast -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>roast</p>
+                <button onclick="speakWord('roast'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>жарить</p>
+            </div>
+        </div>
+        <!-- vegetables -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>vegetables</p>
+                <button onclick="speakWord('vegetables'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>овощи</p>
+            </div>
+        </div>
+        <!-- fruit -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>fruit</p>
+                <button onclick="speakWord('fruit'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>фрукт</p>
+            </div>
+        </div>
+<!-- meat -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>meat</p>
+                <button onclick="speakWord('meat'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>мясо</p>
+            </div>
+        </div>
+<!-- dessert -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>dessert</p>
+                <button onclick="speakWord('dessert'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>десерт</p>
+            </div>
+        </div>
+<!-- sauce -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>sauce</p>
+                <button onclick="speakWord('sauce'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>соус</p>
+            </div>
+        </div>
+<!-- spice -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>spice</p>
+                <button onclick="speakWord('spice'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>специя</p>
+            </div>
+        </div>
+<!-- salad -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>salad</p>
+                <button onclick="speakWord('salad'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>салат</p>
+            </div>
+        </div>
+<!-- sandwich -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>sandwich</p>
+                <button onclick="speakWord('sandwich'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>сендвич</p>
+            </div>
+        </div>
+<!-- Health & Body Lesson -->
+<div id="healthBody" class="lesson" style="display:none; margin-top:40px;">
+    <h2>Health & Body</h2>
+    <div class="cards">
+
+        <!-- Medicine -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" width="120">
+                <p>Medicine</p>
+                <button onclick="speakWord('Medicine'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Медицина</p>
+            </div>
+        </div>
+
+        <!-- Hospital -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965565.png" width="120">
+                <p>Hospital</p>
+                <button onclick="speakWord('Hospital'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Больница</p>
+            </div>
+        </div>
+
+        <!-- Остальные слова (clinic, appointment, nurse...) добавляешь по шаблону -->
+    </div>
+</div>
+<!-- clinic -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('clinic'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>клиника</p>
+            </div>
+        </div>
+<!-- appointment -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('appointment'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>встреча</p>
+            </div>
+        </div>
+<!-- nurse -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('nurse'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>медсестра</p>
+            </div>
+        </div>
+<!-- exercise -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('exercise'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>упражнение</p>
+            </div>
+        </div>
+<!-- healthy -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('healthy'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>здоровый</p>
+            </div>
+        </div>
+<!-- sick -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('sick'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>больной</p>
+            </div>
+        </div>
+<!-- pain -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('pain'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>рана</p>
+            </div>
+        </div>
+<!-- fever -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('fever'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>высокая температура</p>
+            </div>
+        </div>
+<!-- cough -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('cough'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>кашель</p>
+            </div>
+        </div>
+<!-- headache -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('headache'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>головная боль</p>
+            </div>
+        </div>
+<!-- doctor -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('doctor'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>доктор</p>
+            </div>
+        </div>
+<!-- treatment -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('treatment'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>уход</p>
+            </div>
+        </div>
+<!-- recovery -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <button onclick="speakWord('recovery'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>восстановление</p>
+            </div>
+        </div>
+<!-- School & Education Lesson -->
+<div id="schoolEducation" class="lesson" style="display:none; margin-top:40px;">
+    <h2>School & Education</h2>
+    <div class="cards">
+
+        <!-- University -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942838.png" width="120">
+                <p>University</p>
+                <button onclick="speakWord('University'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Университет</p>
+            </div>
+        </div>
+
+        <!-- College -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942839.png" width="120">
+                <p>College</p>
+                <button onclick="speakWord('College'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>Колледж</p>
+            </div>
+        </div>
+
+        <!-- Остальные слова (lesson, subject, student...) добавляешь по шаблону -->
+    </div>
+</div>
+<!-- lesson -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>lesson</p>
+                <button onclick="speakWord('lesson'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>урок</p>
+            </div>
+        </div>
+<!-- subject -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>subject</p>
+                <button onclick="speakWord('subject'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>предмет</p>
+            </div>
+        </div>
+<!-- student -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>student</p>
+                <button onclick="speakWord('student'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>ученик</p>
+            </div>
+        </div>
+<!-- teacher -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>teacher</p>
+                <button onclick="speakWord('teacher'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>учитель</p>
+            </div>
+        </div>
+<!-- homework -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>homevork</p>
+                <button onclick="speakWord('homework'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>домашняя работа</p>
+            </div>
+        </div>
+<!-- classroom -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>classroom</p>
+                <button onclick="speakWord('classroom'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>класс</p>
+            </div>
+        </div>
+<!-- exam -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>exam</p>
+                <button onclick="speakWord('exam'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>экзамен</p>
+            </div>
+        </div>
+<!-- grade -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>grade</p>
+                <button onclick="speakWord('grade'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>класс</p>
+            </div>
+        </div>
+<!-- lecture -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>lecture</p>
+                <button onclick="speakWord('lecture'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>лекция</p>
+            </div>
+        </div>
+<!-- timetable -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>timetable</p>
+                <button onclick="speakWord('timetable'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>расписание</p>
+            </div>
+        </div>
+<!-- project -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>project</p>
+                <button onclick="speakWord('project'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>проект</p>
+            </div>
+        </div>
+<!-- notebook -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>notebook</p>
+                <button onclick="speakWord('notebook'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>тетрадь</p>
+            </div>
+        </div>
+<!-- library -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">
+                <p>library</p>
+                <button onclick="speakWord('library'); event.stopPropagation()">🔊</button>
+            </div>
+            <div class="back">
+                <p>библиотека</p>
+            </div>
+        </div>
+
+
+
+
+
+
